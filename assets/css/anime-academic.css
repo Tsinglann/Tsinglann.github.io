@@ -38,16 +38,27 @@
 }
 
 /* ── Global ─────────────────────────────────────────────── */
+html {
+  min-height: 100%;
+}
 body {
   font-family: 'Inter', 'Noto Serif SC', -apple-system, sans-serif;
+  min-height: 100dvh;
   background-color: var(--ac-bg) !important;
   background-image:
     linear-gradient(rgba(238,240,248,0.52), rgba(238,240,248,0.52)),
     url('/images/background/mmexport1762604224957.jpg') !important;
   background-size: cover !important;
-  background-position: center top !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   background-attachment: fixed !important;
   color: var(--ac-text);
+}
+/* iOS Safari: fixed attachment unsupported — fallback to scroll */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll !important;
+  }
 }
 
 /* Only apply CJK font to explicit lang-zh blocks, NOT via :lang(zh) which would
@@ -665,7 +676,8 @@ html[data-theme="dark"] body {
     linear-gradient(rgba(18,17,30,0.62), rgba(18,17,30,0.62)),
     url('/images/background/mmexport1762604224957.jpg') !important;
   background-size: cover !important;
-  background-position: center top !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   color: var(--ac-text);
 }
 
