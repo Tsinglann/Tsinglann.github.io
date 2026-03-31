@@ -258,9 +258,6 @@ body {
   position: relative;
   /* overflow: hidden removed — prevents icon clipping with backdrop-filter */
 }
-@media screen and (min-width: 925px) {
-  .sidebar { width: 260px !important; max-width: 260px !important; }
-}
 .sidebar::before {
   content: '';
   position: absolute;
@@ -271,6 +268,9 @@ body {
   pointer-events: none;
 }
 
+.author__avatar {
+  text-align: center;
+}
 .author__avatar img {
   border-radius: 50% !important;
   border: 2px solid rgba(255,255,255,0.8) !important;
