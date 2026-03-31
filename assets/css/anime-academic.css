@@ -15,8 +15,8 @@
   --ac-grad-right:     #764ba2;
 
   /* Liquid Glass surfaces */
-  --glass-bg:          rgba(255, 255, 255, 0.45);
-  --glass-bg-strong:   rgba(255, 255, 255, 0.65);
+  --glass-bg:          rgba(255, 255, 255, 0.28);
+  --glass-bg-strong:   rgba(255, 255, 255, 0.48);
   --glass-border:      rgba(255, 255, 255, 0.55);
   --glass-highlight:   rgba(255, 255, 255, 0.72);
   --glass-shadow:      rgba(99, 102, 241, 0.10);
@@ -124,7 +124,7 @@ body {
 }
 
 .masthead {
-  background: rgba(255, 255, 255, 0.55) !important;
+  background: rgba(255, 255, 255, 0.38) !important;
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
   border-bottom: 1px solid rgba(255,255,255,0.60) !important;
@@ -161,8 +161,8 @@ body {
 .masthead__menu-item.selected a {
   color: var(--ac-primary-dark) !important;
   font-weight: 700;
-  background: rgba(99,102,241,0.10) !important;
-  border-bottom: 2px solid var(--ac-primary) !important;
+  background: rgba(99,102,241,0.15) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.60);
 }
 .masthead__menu-item--lg a {
   font-size: 1.05em !important;
@@ -338,7 +338,6 @@ body {
   -webkit-backdrop-filter: var(--glass-blur-light);
   border: 1px solid var(--glass-border);
   border-radius: var(--ac-radius);
-  border-left: 3px solid var(--ac-primary) !important;
   padding: 1.1em 1.3em;
   box-shadow:
     0 4px 20px var(--glass-shadow),
@@ -359,7 +358,6 @@ body {
   box-shadow:
     0 12px 40px rgba(99,102,241,0.16),
     inset 0 1px 0 rgba(255,255,255,0.85);
-  border-left-color: var(--ac-grad-right) !important;
 }
 .research-card h3 {
   margin-top: 0.2em;
@@ -651,8 +649,8 @@ body::after {
 
 /* ── Dark Mode ───────────────────────────────────────────── */
 html[data-theme="dark"] {
-  --glass-bg:           rgba(20, 18, 40, 0.60);
-  --glass-bg-strong:    rgba(25, 22, 48, 0.75);
+  --glass-bg:           rgba(20, 18, 40, 0.45);
+  --glass-bg-strong:    rgba(25, 22, 48, 0.58);
   --glass-border:       rgba(255, 255, 255, 0.10);
   --glass-highlight:    rgba(255, 255, 255, 0.08);
   --glass-shadow:       rgba(0, 0, 0, 0.35);
@@ -690,8 +688,8 @@ html[data-theme="dark"] .masthead__menu-item a:hover {
 }
 html[data-theme="dark"] .masthead__menu-item.selected a {
   color: #fff !important;
-  background: rgba(255,255,255,0.08) !important;
-  border-bottom-color: rgba(165,180,252,0.80) !important;
+  background: rgba(255,255,255,0.12) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.20);
 }
 html[data-theme="dark"] #lang-toggle-btn {
   color: rgba(228,227,240,0.88) !important;
@@ -745,7 +743,6 @@ html[data-theme="dark"] .page__content a:not(.btn):hover {
 html[data-theme="dark"] .research-card {
   background: var(--glass-bg) !important;
   border-color: var(--glass-border);
-  border-left-color: #7c85d0 !important;
 }
 html[data-theme="dark"] .research-card h3 { color: #c4b5fd; }
 html[data-theme="dark"] .research-card p { color: var(--ac-text-muted) !important; }
