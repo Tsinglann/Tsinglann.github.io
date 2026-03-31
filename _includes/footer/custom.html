@@ -1,6 +1,14 @@
 <!-- start custom footer snippets -->
 
-<!-- Language toggle script -->
+<!-- Floating action buttons (mobile only) -->
+<div id="mobile-fab-group">
+  <button id="fab-lang-btn" class="mobile-fab" aria-label="Toggle language">EN</button>
+  <button id="fab-theme-btn" class="mobile-fab" aria-label="Toggle theme">
+    <i id="fab-theme-icon" class="fa-solid fa-sun" aria-hidden="true"></i>
+  </button>
+</div>
+
+<!-- Language toggle + FAB script -->
 <script>
 (function(){
   var html = document.documentElement;
@@ -9,15 +17,30 @@
   function applyLang(l) {
     html.setAttribute('data-lang', l);
     localStorage.setItem('site-lang', l);
+    // Navbar button
     var btn = document.getElementById('lang-toggle-btn');
     if (btn) btn.textContent = l === 'zh' ? 'EN' : '中';
+    // FAB button
+    var fab = document.getElementById('fab-lang-btn');
+    if (fab) fab.textContent = l === 'zh' ? 'EN' : '中';
+    // Nav link text
     document.querySelectorAll('.greedy-nav a[data-zh]').forEach(function(a){
       a.textContent = l === 'zh' ? a.getAttribute('data-zh') : a.getAttribute('data-en');
     });
   }
 
+  function syncThemeIcon() {
+    var isDark = html.getAttribute('data-theme') === 'dark';
+    var fabIcon = document.getElementById('fab-theme-icon');
+    if (fabIcon) {
+      fabIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    }
+  }
+
   function setup() {
     applyLang(lang);
+
+    // Navbar lang button
     var btn = document.getElementById('lang-toggle-btn');
     if (btn) {
       btn.addEventListener('click', function(e){
@@ -26,10 +49,33 @@
         applyLang(lang);
       });
     }
+
+    // FAB lang button
+    var fabLang = document.getElementById('fab-lang-btn');
+    if (fabLang) {
+      fabLang.addEventListener('click', function(){
+        lang = lang === 'zh' ? 'en' : 'zh';
+        applyLang(lang);
+      });
+    }
+
+    // FAB theme button — delegates to existing toggleTheme(), syncs icon via MutationObserver
+    var fabTheme = document.getElementById('fab-theme-btn');
+    if (fabTheme) {
+      fabTheme.addEventListener('click', function(){
+        if (typeof toggleTheme === 'function') toggleTheme();
+      });
+    }
+
+    // Watch data-theme attribute to keep FAB icon in sync
+    syncThemeIcon();
+    new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        if (m.attributeName === 'data-theme') syncThemeIcon();
+      });
+    }).observe(html, { attributes: true });
   }
 
-  // Footer scripts run after DOM is parsed — DOMContentLoaded may already have fired.
-  // Use readyState check to handle both cases.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setup);
   } else {

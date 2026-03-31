@@ -88,6 +88,57 @@ body {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "academicons" !important;
 }
 
+/* ── Floating Action Buttons (mobile only) ───────────────── */
+#mobile-fab-group {
+  display: none; /* hidden on desktop */
+}
+.mobile-fab {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  box-shadow: 0 4px 20px rgba(99,102,241,0.20), inset 0 1px 0 var(--glass-highlight);
+  color: var(--ac-primary-dark);
+  font-size: 0.82em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.28s var(--spring);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.mobile-fab:hover, .mobile-fab:active {
+  background: rgba(99,102,241,0.28);
+  transform: scale(1.10);
+  box-shadow: 0 8px 28px rgba(99,102,241,0.28), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+html[data-theme="dark"] .mobile-fab {
+  color: #c4b5fd;
+  background: var(--glass-bg-strong);
+}
+
+@media (max-width: 924px) {
+  /* Show FABs */
+  #mobile-fab-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    bottom: 24px;
+    right: 16px;
+    z-index: 9000;
+  }
+  /* Hide navbar lang + theme toggles */
+  .masthead__menu-item.persist.tail,
+  #theme-toggle {
+    display: none !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
