@@ -49,8 +49,17 @@ body {
   color: var(--ac-text);
 }
 
-:lang(zh), .lang-zh {
+/* Only apply CJK font to explicit lang-zh blocks, NOT via :lang(zh) which would
+   override FontAwesome icon font on ALL elements when html[lang="zh-CN"] */
+.lang-zh {
   font-family: 'Noto Serif SC', 'Inter', sans-serif;
+}
+
+/* Protect icon fonts from any font-family inheritance */
+.fa, .fas, .far, .fab, .fal, .fad, .fa-solid, .fa-regular, .fa-brands,
+[class^="fa-"], [class*=" fa-"],
+.ai, [class^="ai-"], [class*=" ai-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "academicons" !important;
 }
 
 /* Custom scrollbar */
