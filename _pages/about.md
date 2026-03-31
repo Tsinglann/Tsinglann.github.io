@@ -7,14 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-<div class="page-hero">
-  <div class="page-hero__content">
-    <div class="page-hero__title lang-zh">非平衡布朗转子的涨落响应行为</div>
-    <div class="page-hero__title lang-en">Fluctuation-Response of Non-equilibrium Brownian Rotors</div>
-    <div class="page-hero__subtitle lang-zh">随机热力学 · 线性响应 · 磁场调控 · 兰州大学 2022</div>
-    <div class="page-hero__subtitle lang-en">Stochastic Thermodynamics · Linear Response · Magnetic Control · LZU 2022</div>
-  </div>
-</div>
+<div class="page-hero"></div>
 
 <div class="lang-zh">
 

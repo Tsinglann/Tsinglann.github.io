@@ -53,10 +53,21 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--ac-primary); }
 
 /* ── Masthead / Navbar ───────────────────────────────────── */
+.masthead,
+.masthead__inner-wrap,
+.masthead__menu,
+.masthead__menu ul,
+.masthead__menu-item,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .visible-links li {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
 .masthead {
   background: linear-gradient(120deg, var(--ac-grad-left) 0%, var(--ac-grad-right) 100%) !important;
   border-bottom: none !important;
-  backdrop-filter: blur(10px);
 }
 
 .masthead::after { display: none !important; }
