@@ -2,6 +2,9 @@ main:
   - title: "Research / 研究"
     url: /research/
 
+  - title: "Posts / 文章"
+    url: /year-archive/
+
   - title: "Publications / 论文"
     url: /publications/
 
