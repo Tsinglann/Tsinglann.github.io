@@ -718,17 +718,43 @@ html[data-theme="dark"] .greedy-nav .hidden-links li a {
   .page, .archive { padding: 1.5em 1.5em !important; }
 }
 
+/* Home icon: only on mobile */
+.mobile-home-btn { display: none !important; }
 @media (max-width: 924px) {
+  .mobile-home-btn { display: list-item !important; }
+  .mobile-home-btn a { padding: 5px 10px !important; }
+
   /* Hide site title and hamburger on mobile — show all nav items inline */
   .masthead__menu-item--lg { display: none !important; }
   .greedy-nav > button { display: none !important; }
   .greedy-nav .hidden-links { display: none !important; }
   .greedy-nav .visible-links {
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
-    gap: 2px !important;
+    gap: 1px !important;
   }
-  .masthead__menu-item a { padding: 5px 14px !important; font-size: 0.92em !important; }
+  /* Compact nav items to fit one row */
+  .masthead__menu-item a {
+    padding: 5px 8px !important;
+    font-size: 0.82em !important;
+    white-space: nowrap !important;
+  }
+  /* Keep EN/moon even more compact */
+  #lang-toggle-btn { padding: 5px 7px !important; }
+  #theme-toggle a  { padding: 5px 7px !important; }
+
+  /* Follow button: hide it, always show social links */
+  .author__urls-wrapper .btn.btn--inverse { display: none !important; }
+  .author__urls-wrapper .author__urls {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+  }
+  /* Contact info: show on mobile (normally desktop-only) */
+  .sidebar .author__desktop {
+    display: block !important;
+  }
 
   /* Sidebar: stack avatar + content vertically, center everything */
   .author__avatar,
