@@ -11,7 +11,7 @@ tags:
   - 非平衡稳态
 ---
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 ## Harada–Sasa 关系
 
@@ -60,7 +60,7 @@ $$\tilde{C}_v(\omega) = \frac{2\gamma k_B T}{(I\omega)^2 + \gamma^2}$$
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 ## The Harada–Sasa Relation
 

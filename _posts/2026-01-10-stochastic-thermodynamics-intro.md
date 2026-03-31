@@ -9,7 +9,7 @@ tags:
   - 随机热力学
 ---
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 ## 研究背景
 
@@ -50,7 +50,7 @@ $$I\ddot{\theta} = -\gamma \dot{\theta} + M + \xi(t)$$
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 ## Research Background
 

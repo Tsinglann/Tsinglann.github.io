@@ -10,7 +10,7 @@ tags:
   - 熵产生
 ---
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 ## 两种熵产生定义
 
@@ -58,7 +58,7 @@ $$\mathrm{Sym}(\sigma) \equiv \ln \frac{P(\Delta S = +\sigma)}{P(\Delta S = -\si
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 ## Two Definitions of Entropy Production
 

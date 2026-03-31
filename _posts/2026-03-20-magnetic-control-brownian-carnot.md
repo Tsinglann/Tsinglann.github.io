@@ -11,7 +11,7 @@ tags:
   - 磁场控制
 ---
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 ## 动机：从被动观测到主动调控
 
@@ -81,7 +81,7 @@ $$\min_{\{I_j\}} \sum_i \left[ B(x_i) - B^\ast(x_i) \right]^2 + \lambda \sum_j I
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 ## Motivation: From Passive Observation to Active Control
 
