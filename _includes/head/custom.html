@@ -14,6 +14,19 @@
   html[data-lang="zh"] .lang-en { display: none !important; }
 </style>
 
+<!-- On mobile: move all hidden-links back to visible-links after greedy nav runs -->
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    if (window.innerWidth < 925) {
+      var visible = document.querySelector('.greedy-nav .visible-links');
+      var hidden  = document.querySelector('.greedy-nav .hidden-links');
+      if (visible && hidden) {
+        while (hidden.firstChild) visible.appendChild(hidden.firstChild);
+      }
+    }
+  });
+</script>
+
 <!-- MathJax config: enable $...$ inline math -->
 <script>
   MathJax = {
