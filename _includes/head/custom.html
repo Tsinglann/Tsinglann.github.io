@@ -2,6 +2,18 @@
 
 <!-- start custom head snippets -->
 
+<!-- Language toggle: apply saved preference early to avoid flash -->
+<script>
+  (function(){
+    var l = localStorage.getItem('site-lang') || 'zh';
+    document.documentElement.setAttribute('data-lang', l);
+  })();
+</script>
+<style>
+  html[data-lang="en"] .lang-zh { display: none !important; }
+  html[data-lang="zh"] .lang-en { display: none !important; }
+</style>
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 

@@ -1,5 +1,33 @@
 <!-- start custom footer snippets -->
 
+<!-- Language toggle script -->
+<script>
+(function(){
+  var html = document.documentElement;
+  var lang = localStorage.getItem('site-lang') || 'zh';
+
+  function applyLang(l) {
+    html.setAttribute('data-lang', l);
+    localStorage.setItem('site-lang', l);
+    var btn = document.getElementById('lang-toggle-btn');
+    if (btn) btn.textContent = l === 'zh' ? 'EN' : '中';
+  }
+
+  applyLang(lang);
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('lang-toggle-btn');
+    if (btn) {
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        lang = lang === 'zh' ? 'en' : 'zh';
+        applyLang(lang);
+      });
+    }
+  });
+})();
+</script>
+
 <a href="/sitemap/">Sitemap</a>
 
 <!-- Support for MatJax -->
