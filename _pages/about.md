@@ -23,7 +23,7 @@ redirect_from:
 
 <h2>研究方向</h2>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1em;margin:1em 0 1.5em;">
+<div class="research-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1em;margin:1em 0 1.5em;">
   <div class="research-card">
     <h3>随机热力学</h3>
     <p style="font-size:0.88em;color:#6b7280;margin:0">在单粒子轨道层面定义功、热与熵产生，研究远离平衡的热力学量概率分布及时间反演对称性。</p>
@@ -71,7 +71,7 @@ and programmable magnetic-field control of potential landscapes.
 
 <h2>Research Interests</h2>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1em;margin:1em 0 1.5em;">
+<div class="research-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1em;margin:1em 0 1.5em;">
   <div class="research-card">
     <h3>Stochastic Thermodynamics</h3>
     <p style="font-size:0.88em;color:#6b7280;margin:0">Defining work, heat, and entropy production along individual trajectories; studying probability distributions and time-reversal symmetries far from equilibrium.</p>

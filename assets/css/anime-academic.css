@@ -386,8 +386,87 @@ body {
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  .page-hero { height: 300px; }
+  .page { padding: 1.5em 1.5em !important; }
+}
+
+/* Mobile (≤ 768px) */
 @media (max-width: 768px) {
-  .page-hero { height: 240px; }
-  .page-hero__title { font-size: 1.4em; }
-  .page { padding: 1.2em 1em !important; }
+  /* Hero */
+  .page-hero {
+    height: 200px;
+    border-radius: var(--ac-radius-sm);
+    margin-bottom: 1.2em;
+  }
+  .page-hero__content { padding: 1em 1.2em; }
+  .page-hero__title { font-size: 1.15em; }
+  .page-hero__subtitle { font-size: 0.8em; }
+
+  /* Page card */
+  .page {
+    padding: 1em 0.9em !important;
+    border-radius: var(--ac-radius-sm) !important;
+  }
+
+  /* Tables: allow horizontal scroll on mobile */
+  .page__content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.85em;
+  }
+
+  /* Research cards: single column */
+  .research-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Sidebar: reduce padding */
+  .sidebar {
+    padding: 1em 0.9em !important;
+    border-radius: var(--ac-radius-sm) !important;
+  }
+
+  /* Author bio: smaller font */
+  .author__bio { font-size: 0.78em !important; }
+
+  /* Headings */
+  .page__content h1 { font-size: 1.4em; }
+  .page__content h2 { font-size: 1.2em; }
+  .page__content h3 { font-size: 1.05em; }
+
+  /* Archive items */
+  .archive__item {
+    padding: 0.8em 1em !important;
+  }
+
+  /* Buttons: full-width on mobile */
+  .btn--primary {
+    display: inline-block;
+    margin-bottom: 0.5em;
+  }
+
+  /* Posts list: tighten spacing */
+  .list__item { margin-bottom: 0.8em; }
+
+  /* Masthead: smaller font on mobile */
+  .masthead__menu-item a { font-size: 0.88em; }
+  .masthead__menu-item--lg a { font-size: 0.95em !important; }
+}
+
+/* Very small screens (≤ 480px) */
+@media (max-width: 480px) {
+  .page-hero { height: 160px; }
+
+  .page__content table th,
+  .page__content table td {
+    padding: 0.45em 0.65em;
+    font-size: 0.8em;
+  }
+
+  /* Stack nav items */
+  .masthead__inner-wrap { padding: 0.3em 0.8em; }
 }
