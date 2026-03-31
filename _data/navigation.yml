@@ -1,12 +1,16 @@
 main:
-  - title: "Research / 研究"
+  - title: "研究"
+    title_en: "Research"
     url: /research/
 
-  - title: "Posts / 文章"
+  - title: "文章"
+    title_en: "Posts"
     url: /year-archive/
 
-  - title: "Publications / 论文"
+  - title: "论文"
+    title_en: "Publications"
     url: /publications/
 
-  - title: "CV / 简历"
+  - title: "简历"
+    title_en: "CV"
     url: /cv/
