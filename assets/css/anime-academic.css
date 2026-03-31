@@ -290,8 +290,16 @@ body {
   pointer-events: none;
 }
 
-.author__avatar {
-  text-align: center;
+.author__avatar,
+.sidebar .author__avatar {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+.author__avatar img,
+.sidebar .author__avatar img {
+  display: block !important;
+  margin: 0 auto !important;
 }
 .author__avatar img {
   border-radius: 50% !important;
