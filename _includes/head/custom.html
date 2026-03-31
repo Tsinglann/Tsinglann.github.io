@@ -14,6 +14,16 @@
   html[data-lang="zh"] .lang-en { display: none !important; }
 </style>
 
+<!-- MathJax config: enable $...$ inline math -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+
 <!-- Support for Academicons -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
 
