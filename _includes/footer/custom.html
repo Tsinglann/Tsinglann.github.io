@@ -11,15 +11,13 @@
     localStorage.setItem('site-lang', l);
     var btn = document.getElementById('lang-toggle-btn');
     if (btn) btn.textContent = l === 'zh' ? 'EN' : '中';
-    // Update nav link text to match language
     document.querySelectorAll('.greedy-nav a[data-zh]').forEach(function(a){
       a.textContent = l === 'zh' ? a.getAttribute('data-zh') : a.getAttribute('data-en');
     });
   }
 
-  applyLang(lang);
-
-  document.addEventListener('DOMContentLoaded', function(){
+  function setup() {
+    applyLang(lang);
     var btn = document.getElementById('lang-toggle-btn');
     if (btn) {
       btn.addEventListener('click', function(e){
@@ -28,7 +26,15 @@
         applyLang(lang);
       });
     }
-  });
+  }
+
+  // Footer scripts run after DOM is parsed — DOMContentLoaded may already have fired.
+  // Use readyState check to handle both cases.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
 })();
 </script>
 
