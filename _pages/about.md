@@ -9,7 +9,7 @@ redirect_from:
 
 <div class="page-hero"></div>
 
-<div class="lang-zh">
+<div class="lang-zh" markdown="1">
 
 <h2>关于我</h2>
 
@@ -55,7 +55,7 @@ redirect_from:
 
 </div>
 
-<div class="lang-en">
+<div class="lang-en" markdown="1">
 
 <h2>About Me</h2>
 
