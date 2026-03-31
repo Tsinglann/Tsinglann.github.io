@@ -11,7 +11,7 @@ locale                   : "zh-CN"
 site_theme               : "default"
 title                    : "付文鑫 | Fu Wenxin"
 title_separator          : "-"
-name                     : &name "付文鑫 (Fu Wenxin)"
+name                     : &name "付文鑫"
 description              : &description "理论物理 · 非平衡统计物理 · 随机热力学 | Theoretical Physics · Nonequilibrium Statistical Physics · Stochastic Thermodynamics"
 url                      : https://Tsinglann.github.io
 baseurl                  : ""
@@ -23,7 +23,8 @@ repository               : "Tsinglann/Tsinglann.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "付文鑫 (Fu Wenxin)"
+  name             : "付文鑫"
+  name_en          : "Fu Wenxin"
   pronouns         :
   bio              : "理论物理 · 兰州大学 2022级<br>非平衡统计物理 / 随机热力学<br><br>Physics · Lanzhou University<br>Nonequilibrium Statistical Physics"
   location         : "Lanzhou, China"

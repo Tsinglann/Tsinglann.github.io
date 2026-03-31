@@ -55,6 +55,20 @@ body {
   font-family: 'Noto Serif SC', 'Inter', sans-serif;
 }
 
+/* Sidebar author name: two-line display */
+.author__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+}
+.author__name-en {
+  font-size: 0.78em;
+  font-weight: 400;
+  color: var(--ac-text-muted);
+  letter-spacing: 0.03em;
+}
+
 /* Protect icon fonts from any font-family inheritance */
 .fa, .fas, .far, .fab, .fal, .fad, .fa-solid, .fa-regular, .fa-brands,
 [class^="fa-"], [class*=" fa-"],
