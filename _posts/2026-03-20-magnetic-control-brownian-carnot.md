@@ -1,5 +1,5 @@
 ---
-title: '可编程磁场控制与布朗卡诺热机 / Programmable Magnetic Control and the Brownian Carnot Engine'
+title: '可编程磁场控制与布朗卡诺热机'
 date: 2026-03-20
 permalink: /posts/2026/03/magnetic-control-brownian-carnot/
 tags:
@@ -10,8 +10,6 @@ tags:
   - 布朗热机
   - 磁场控制
 ---
-
-<div class="lang-zh" markdown="1">
 
 ## 动机：从被动观测到主动调控
 
@@ -78,75 +76,3 @@ $$\min_{\{I_j\}} \sum_i \left[ B(x_i) - B^\ast(x_i) \right]^2 + \lambda \sum_j I
 
 - **有限时间最优输运**：在时间 $\tau$ 内将粒子分布从 $\rho_0$ 输运到 $\rho_1$，最小化熵产生。最优协议满足 Wasserstein 距离的 $1/\tau$ 标度关系。
 - **Landauer 信息擦除**：双势阱系统，通过磁场控制实现比特重置，验证 Landauer 原理的热力学下界 $k_B T \ln 2$。
-
-</div>
-
-<div class="lang-en" markdown="1">
-
-## Motivation: From Passive Observation to Active Control
-
-Traditional vibration-driven granular Brownian motor platforms control effective temperature via vibration intensity but **cannot independently manipulate the potential energy landscape**. A programmable external field would allow:
-1. Constructing potentials of arbitrary shape (tunable spring constant, asymmetric ratchet, etc.)
-2. Dynamically changing the potential during particle motion for finite-time thermodynamic optimal protocols
-3. Designing Brownian engine cycles
-
-## Inverse-Source Design of a Multi-Coil Electromagnet Array
-
-### Physical Model
-
-The magnetic field distribution $B(x)$ in the working region is expanded linearly in coil currents $\{I_j\}$:
-
-$$B(x_i) = \sum_j A_{ij} I_j$$
-
-The response matrix $A_{ij}$ is computed via dipole approximation (or Biot–Savart integration). Given a target field $B^\ast(x_i)$, the optimal current combination is found by:
-
-$$\min_{\{I_j\}} \sum_i \left[ B(x_i) - B^\ast(x_i) \right]^2 + \lambda \sum_j I_j^2$$
-
-The second term is **Tikhonov regularization**, suppressing ill-conditioned solutions.
-
-### Spatial Bandwidth Limitation
-
-With a finite number of coils, the spatial resolution of the field is limited. High-frequency spatial components (fine details of the potential) cannot be reconstructed accurately — analogous to the Gibbs phenomenon in signal processing: truncating a Fourier series at finite order produces oscillations near discontinuities.
-
-### Hardware Design
-
-- Driver chips: PCA9685 (16-channel PWM) + L298N H-bridge
-- Sensor: SS49E Hall sensor (PID closed-loop control for hysteresis correction)
-- Controller: Arduino
-
-## Simulation Results
-
-<div style="display:flex;gap:1em;flex-wrap:wrap;justify-content:center;margin:1.5em 0;">
-  <div style="text-align:center;">
-    <img src="/images/research/mode1_shape_5__A_1_5_k_BT.png" alt="Step potential" style="max-width:280px;width:100%;border:1px solid #ddd;border-radius:4px;">
-    <figcaption style="font-size:0.85em;color:#666;">Step magnetic potential (target vs. reconstructed)</figcaption>
-  </div>
-  <div style="text-align:center;">
-    <img src="/images/research/mode2_shape5.png" alt="Ratchet" style="max-width:280px;width:100%;border:1px solid #ddd;border-radius:4px;">
-    <figcaption style="font-size:0.85em;color:#666;">Asymmetric ratchet potential $V(\theta)=\sin 3\theta + 0.5\sin(6\theta+\pi/4)$</figcaption>
-  </div>
-  <div style="text-align:center;">
-    <img src="/images/research/mode3_multi_shape.png" alt="Multi shape" style="max-width:280px;width:100%;border:1px solid #ddd;border-radius:4px;">
-    <figcaption style="font-size:0.85em;color:#666;">Multiple potential shapes</figcaption>
-  </div>
-</div>
-
-## Brownian Carnot Engine Design
-
-Using programmable potentials, a granular Brownian Carnot cycle can be realized:
-
-| Step | Operation | Thermodynamic correspondence |
-|------|-----------|------------------------------|
-| Isothermal expansion | Slowly release trap ($\kappa \searrow$), contact hot bath $T_H$ | System does work, absorbs heat |
-| Adiabatic cooling | Fast adiabatic switch, $T_H \to T_C$ | Isentropic compression |
-| Isothermal compression | Slowly tighten trap ($\kappa \nearrow$), contact cold bath $T_C$ | External work done, heat released |
-| Adiabatic heating | Fast adiabatic switch, $T_C \to T_H$ | Isentropic expansion |
-
-In the ideal limit, efficiency reaches the Carnot efficiency $\eta_C = 1 - T_C/T_H$. Underdamped inertial effects slightly reduce actual efficiency, while finite-time cycling increases power output.
-
-## Further Applications
-
-- **Finite-time optimal transport**: transporting particle distribution from $\rho_0$ to $\rho_1$ in time $\tau$ while minimizing entropy production. The optimal protocol follows the $1/\tau$ scaling of Wasserstein distance.
-- **Landauer information erasure**: a double-well system in which magnetic field control implements bit reset, verifying the Landauer thermodynamic lower bound $k_B T \ln 2$.
-
-</div>

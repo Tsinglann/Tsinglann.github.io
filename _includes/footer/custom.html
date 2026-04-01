@@ -23,11 +23,21 @@
     var fabGroup = document.getElementById('mobile-fab-group');
     if (fabGroup) document.body.appendChild(fabGroup);
 
-    // FAB theme button
+    // FAB theme button (self-contained — does not rely on module-scoped toggleTheme)
     var fabTheme = document.getElementById('fab-theme-btn');
     if (fabTheme) {
       fabTheme.addEventListener('click', function(){
-        if (typeof toggleTheme === 'function') toggleTheme();
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = (current === 'dark') ? 'light' : 'dark';
+        localStorage.setItem('theme', next);
+        if (next === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+        // sync navbar icon
+        var ni = document.getElementById('theme-icon');
+        if (ni) ni.className = (next === 'dark') ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
       });
     }
 

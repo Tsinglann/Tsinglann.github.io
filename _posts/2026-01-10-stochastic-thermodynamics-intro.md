@@ -1,5 +1,5 @@
 ---
-title: '随机热力学与线性响应理论：研究背景 / Introduction to Stochastic Thermodynamics and Linear Response Theory'
+title: '随机热力学与线性响应理论：研究背景'
 date: 2026-01-10
 permalink: /posts/2026/01/stochastic-thermodynamics-intro/
 tags:
@@ -8,8 +8,6 @@ tags:
   - fluctuation theorem
   - 随机热力学
 ---
-
-<div class="lang-zh" markdown="1">
 
 ## 研究背景
 
@@ -47,46 +45,3 @@ $$I\ddot{\theta} = -\gamma \dot{\theta} + M + \xi(t)$$
 1. 同时包含惯性项、阻尼项和噪声项，是连接经典随机过程与随机热力学的典型模型
 2. 与实验平台（颗粒布朗马达）直接对应
 3. 引入磁场控制后可进行主动势场设计，推进到最优控制研究
-
-</div>
-
-<div class="lang-en" markdown="1">
-
-## Research Background
-
-Linear response theory and fluctuation theorems together form the foundational framework of modern nonequilibrium statistical physics. The former addresses how a system responds on average to weak perturbations near equilibrium; the latter characterizes how stochastic thermodynamic quantities fluctuate far from equilibrium.
-
-### Development of Linear Response Theory
-
-From Einstein's relation (1905) to Onsager reciprocity (1931), the Green–Kubo formula, and the fluctuation–dissipation theorem (FDT), the core idea is: **equilibrium fluctuations determine the linear response to external perturbations**.
-
-$$\chi(t) = -\frac{1}{k_B T} \frac{d}{dt} C(t), \quad t > 0$$
-
-where $\chi(t)$ is the response function and $C(t) = \langle A(t) A(0) \rangle_\text{eq}$ is the equilibrium autocorrelation function.
-
-### Fluctuation Theorems
-
-The series of fluctuation theorems (Evans–Searles 1993, Gallavotti–Cohen 1995, Jarzynski 1997, Crooks 1999) elevated the second law of thermodynamics from a "macroscopic inequality" to a "microscopic equality":
-
-$$\frac{P(\Delta S = +\sigma)}{P(\Delta S = -\sigma)} = e^{\sigma / k_B}$$
-
-The ratio of probabilities for positive and negative entropy production is given by the Boltzmann factor.
-
-### Stochastic Thermodynamics
-
-Sekimoto (1998) and Seifert (2005) extended thermodynamic quantities to the level of individual particle trajectories: work $W$, heat $Q$, and entropy production $\Delta S$ are defined along stochastic trajectories $\{x(t)\}$, establishing the first and second laws of thermodynamics at the microscopic level.
-
-## Research Subject: Underdamped Brownian Rotor
-
-This thesis studies an underdamped Langevin system:
-
-$$I\ddot{\theta} = -\gamma \dot{\theta} + M + \xi(t)$$
-
-where $I$ is the moment of inertia, $\gamma$ is the damping coefficient, $M$ is the driving torque, and $\xi(t)$ is Gaussian white noise with $\langle \xi(t)\xi(t') \rangle = 2\gamma k_B T \delta(t-t')$.
-
-Three reasons motivate this choice:
-1. Contains inertia, damping, and noise simultaneously — a canonical bridge between classical stochastic processes and stochastic thermodynamics
-2. Directly corresponds to the experimental platform (granular Brownian motor)
-3. Magnetic field control enables active potential design, advancing toward optimal control
-
-</div>
