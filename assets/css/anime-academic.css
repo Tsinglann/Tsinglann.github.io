@@ -792,14 +792,15 @@ html[data-theme="dark"] .greedy-nav .hidden-links li a {
   .page, .archive { padding: 1.5em 1.5em !important; }
 }
 
-/* Home icon: only on mobile */
-.mobile-home-btn { display: none !important; }
+/* Site title text: hidden on all screens, use home icon instead */
+.masthead__menu-item--lg { display: none !important; }
+/* Home icon: always visible */
+.mobile-home-btn { display: list-item !important; }
+
 @media (max-width: 924px) {
-  .mobile-home-btn { display: list-item !important; }
   .mobile-home-btn a { padding: 5px 10px !important; }
 
-  /* Hide site title and hamburger on mobile — show all nav items inline */
-  .masthead__menu-item--lg { display: none !important; }
+  /* Hide hamburger on mobile — show all nav items inline */
   .greedy-nav > button { display: none !important; }
   .greedy-nav .hidden-links { display: none !important; }
   .greedy-nav .visible-links {
