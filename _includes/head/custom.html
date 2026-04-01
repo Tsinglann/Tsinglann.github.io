@@ -2,21 +2,44 @@
 
 <!-- start custom head snippets -->
 
-<!-- Language toggle: apply saved preference early to avoid flash -->
+<!-- ── Language system ─────────────────────────────────────
+     All language logic lives here as a global function.
+     Buttons call window.siteToggleLang() via onclick attribute.
+     No addEventListener / DOMContentLoaded dependency.
+  ──────────────────────────────────────────────────────── -->
 <script>
+  // Apply lang immediately to avoid flash
   (function(){
     var l = localStorage.getItem('site-lang') || 'zh';
     document.documentElement.setAttribute('data-lang', l);
   })();
-</script>
-<style>
-  html[data-lang="en"] .lang-zh { display: none !important; }
-  html[data-lang="zh"] .lang-en { display: none !important; }
-</style>
 
-<!-- On mobile: move all hidden-links back to visible-links after greedy nav runs -->
-<script>
+  // Global toggle function — called by onclick on every lang button
+  window.siteToggleLang = function() {
+    var current = localStorage.getItem('site-lang') || 'zh';
+    var next = current === 'zh' ? 'en' : 'zh';
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('site-lang', next);
+    // Update label on all lang-toggle buttons
+    document.querySelectorAll('[data-lang-btn]').forEach(function(el){
+      el.textContent = next === 'zh' ? 'EN' : '中';
+    });
+    // Update nav link text
+    document.querySelectorAll('[data-zh]').forEach(function(el){
+      el.textContent = next === 'zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    });
+  };
+
+  // After DOM ready: sync button labels to saved preference
   document.addEventListener('DOMContentLoaded', function(){
+    var l = localStorage.getItem('site-lang') || 'zh';
+    document.querySelectorAll('[data-lang-btn]').forEach(function(el){
+      el.textContent = l === 'zh' ? 'EN' : '中';
+    });
+    document.querySelectorAll('[data-zh]').forEach(function(el){
+      el.textContent = l === 'zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+    });
+    // Mobile: move greedy-nav hidden items back to visible
     if (window.innerWidth < 925) {
       var visible = document.querySelector('.greedy-nav .visible-links');
       var hidden  = document.querySelector('.greedy-nav .hidden-links');
@@ -26,6 +49,10 @@
     }
   });
 </script>
+<style>
+  html[data-lang="en"] .lang-zh { display: none !important; }
+  html[data-lang="zh"] .lang-en { display: none !important; }
+</style>
 
 <!-- MathJax config: enable $...$ inline math -->
 <script>

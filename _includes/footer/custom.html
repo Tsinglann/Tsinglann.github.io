@@ -2,53 +2,26 @@
 
 <!-- Floating action buttons (mobile only) -->
 <div id="mobile-fab-group">
-  <button id="fab-lang-btn" class="mobile-fab" aria-label="Toggle language">EN</button>
+  <button id="fab-lang-btn" data-lang-btn class="mobile-fab" aria-label="Toggle language" onclick="siteToggleLang()">EN</button>
   <button id="fab-theme-btn" class="mobile-fab" aria-label="Toggle theme">
     <i id="fab-theme-icon" class="fa-solid fa-sun" aria-hidden="true"></i>
   </button>
 </div>
 
-<!-- Language toggle + FAB script -->
+<!-- FAB: move to body root (escapes footer backdrop-filter stacking context)
+     + keep theme icon in sync with data-theme attribute -->
 <script>
 (function(){
-  var html = document.documentElement;
-
-  // Always read from localStorage — avoids stale closure variable
-  function getLang() { return localStorage.getItem('site-lang') || 'zh'; }
-
-  function applyLang(l) {
-    html.setAttribute('data-lang', l);
-    localStorage.setItem('site-lang', l);
-    ['lang-toggle-btn', 'fab-lang-btn'].forEach(function(id){
-      var el = document.getElementById(id);
-      if (el) el.textContent = l === 'zh' ? 'EN' : '中';
-    });
-    document.querySelectorAll('.greedy-nav a[data-zh]').forEach(function(a){
-      a.textContent = l === 'zh' ? a.getAttribute('data-zh') : a.getAttribute('data-en');
-    });
-  }
-
-  function toggleLang() {
-    applyLang(getLang() === 'zh' ? 'en' : 'zh');
-  }
-
   function syncThemeIcon() {
-    var isDark = html.getAttribute('data-theme') === 'dark';
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     var icon = document.getElementById('fab-theme-icon');
     if (icon) icon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
   }
 
   function setup() {
-    // Apply saved language
-    applyLang(getLang());
-
-    // Bind language toggle — navbar button
-    var navBtn = document.getElementById('lang-toggle-btn');
-    if (navBtn) navBtn.addEventListener('click', function(e){ e.preventDefault(); toggleLang(); });
-
-    // Bind language toggle — FAB button
-    var fabLang = document.getElementById('fab-lang-btn');
-    if (fabLang) fabLang.addEventListener('click', toggleLang);
+    // Move FAB group to body so position:fixed works correctly
+    var fabGroup = document.getElementById('mobile-fab-group');
+    if (fabGroup) document.body.appendChild(fabGroup);
 
     // FAB theme button
     var fabTheme = document.getElementById('fab-theme-btn');
@@ -58,18 +31,13 @@
       });
     }
 
-    // Move FAB group to <body> root so position:fixed works
-    // (footer has backdrop-filter which creates a new stacking context)
-    var fabGroup = document.getElementById('mobile-fab-group');
-    if (fabGroup) document.body.appendChild(fabGroup);
-
-    // Keep FAB theme icon in sync with data-theme changes
+    // Sync theme icon now and on every theme change
     syncThemeIcon();
     new MutationObserver(function(mutations){
       for (var i = 0; i < mutations.length; i++) {
         if (mutations[i].attributeName === 'data-theme') syncThemeIcon();
       }
-    }).observe(html, { attributes: true });
+    }).observe(document.documentElement, { attributes: true });
   }
 
   if (document.readyState === 'loading') {
