@@ -121,21 +121,24 @@ html[data-theme="dark"] .mobile-fab {
   background: var(--glass-bg-strong);
 }
 
+/* FAB group: always hidden — buttons are in navbar on all screen sizes */
+#mobile-fab-group {
+  display: none !important;
+}
+
 @media (max-width: 924px) {
-  /* Show FABs */
-  #mobile-fab-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: fixed;
-    bottom: 24px;
-    right: 16px;
-    z-index: 9000;
+  /* Tighten nav item padding so all buttons fit on small screens */
+  .masthead__menu-item a,
+  .masthead__menu-item--lg a {
+    padding: 5px 10px !important;
   }
-  /* Hide navbar lang + theme toggles */
-  .masthead__menu-item.persist.tail,
-  #theme-toggle {
-    display: none !important;
+  /* Lang + theme toggle buttons: extra compact */
+  .masthead__menu-item.persist.tail a {
+    padding: 5px 8px !important;
+  }
+  /* Gap between nav items */
+  .greedy-nav .visible-links {
+    gap: 2px !important;
   }
 }
 
