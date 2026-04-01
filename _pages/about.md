@@ -11,6 +11,27 @@ redirect_from:
 
 <div class="lang-zh" markdown="1">
 
+<h2>研究方向</h2>
+
+<div class="research-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1em;margin:1em 0 1.5em;">
+  <div class="research-card">
+    <h3>随机热力学</h3>
+    <p style="font-size:0.88em;margin:0">在单粒子轨道层面定义功、热与熵产生，研究远离平衡的热力学量概率分布及时间反演对称性。</p>
+  </div>
+  <div class="research-card">
+    <h3>线性响应理论</h3>
+    <p style="font-size:0.88em;margin:0">验证 FDT 在非平衡稳态中的适用边界，分析欠阻尼布朗转子线性响应的有效范围。</p>
+  </div>
+  <div class="research-card">
+    <h3>涨落定理 & TUR</h3>
+    <p style="font-size:0.88em;margin:0">数值验证热力学熵产生与轨迹熵产生一致性；量化欠阻尼惯性对 TUR 下界的修正（Q ≈ 0.80）。</p>
+  </div>
+  <div class="research-card">
+    <h3>磁场主动调控</h3>
+    <p style="font-size:0.88em;margin:0">设计基于电磁铁阵列的可编程势阱，为最优输运、信息擦除与布朗卡诺热机提供实验平台。</p>
+  </div>
+</div>
+
 <h2>教育经历</h2>
 
 **理学学士（在读）**，预计 2026 年毕业
@@ -47,6 +68,27 @@ redirect_from:
 </div>
 
 <div class="lang-en" markdown="1">
+
+<h2>Research Interests</h2>
+
+<div class="research-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1em;margin:1em 0 1.5em;">
+  <div class="research-card">
+    <h3>Stochastic Thermodynamics</h3>
+    <p style="font-size:0.88em;margin:0">Defining work, heat, and entropy production along individual trajectories; studying probability distributions and time-reversal symmetries far from equilibrium.</p>
+  </div>
+  <div class="research-card">
+    <h3>Linear Response Theory</h3>
+    <p style="font-size:0.88em;margin:0">Verifying the FDT validity boundary in nonequilibrium steady states; characterizing the effective range of linear response for an underdamped Brownian rotor.</p>
+  </div>
+  <div class="research-card">
+    <h3>Fluctuation Theorems & TUR</h3>
+    <p style="font-size:0.88em;margin:0">Numerically verifying consistency of entropy production definitions; quantifying the inertial correction to the TUR bound (Q ≈ 0.80 vs. 1.00).</p>
+  </div>
+  <div class="research-card">
+    <h3>Magnetic Field Control</h3>
+    <p style="font-size:0.88em;margin:0">Designing a programmable magnetic trap using an electromagnet array for optimal transport, information erasure, and Brownian Carnot engines.</p>
+  </div>
+</div>
 
 <h2>Education</h2>
 
