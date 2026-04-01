@@ -760,38 +760,9 @@ body::after {
   opacity: 0.7;
 }
 
-/* ── Mobile hamburger dropdown glass style ───────────────── */
-.greedy-nav .hidden-links {
-  background: rgba(240, 240, 255, 0.82) !important;
-  backdrop-filter: blur(24px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
-  border: 1px solid rgba(255,255,255,0.55) !important;
-  border-radius: var(--ac-radius) !important;
-  box-shadow: 0 8px 32px rgba(99,102,241,0.18) !important;
-  padding: 0.4em 0 !important;
-  min-width: 140px !important;
-}
-.greedy-nav .hidden-links li a {
-  color: var(--ac-primary-dark) !important;
-  font-weight: 500;
-  padding: 0.55em 1.2em !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid rgba(99,102,241,0.08) !important;
-}
-.greedy-nav .hidden-links li:last-child a {
-  border-bottom: none !important;
-}
-.greedy-nav .hidden-links li a:hover {
-  background: rgba(99,102,241,0.10) !important;
-}
-html[data-theme="dark"] .greedy-nav .hidden-links {
-  background: rgba(22,20,44,0.88) !important;
-  border-color: rgba(255,255,255,0.12) !important;
-}
-html[data-theme="dark"] .greedy-nav .hidden-links li a {
-  color: #c4b5fd !important;
-  border-bottom-color: rgba(255,255,255,0.06) !important;
-}
+/* hidden-links and hamburger button: permanently gone */
+.greedy-nav > button,
+.greedy-nav .hidden-links { display: none !important; }
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
@@ -807,15 +778,6 @@ html[data-theme="dark"] .greedy-nav .hidden-links li a {
 @media (max-width: 924px) {
   .mobile-home-btn a { padding: 5px 10px !important; }
 
-  /* Hide hamburger; force all hidden items back inline in one row */
-  .greedy-nav > button { display: none !important; }
-  /* Reveal hidden-links inline so greedy-nav overflow items are never lost */
-  .greedy-nav .hidden-links {
-    position: static !important;
-    display: contents !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
   .greedy-nav .visible-links {
     flex-wrap: nowrap !important;
     justify-content: center !important;
