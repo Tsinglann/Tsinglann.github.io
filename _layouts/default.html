@@ -11,7 +11,7 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body{% unless page.url == "/" or page.url == "/index.html" %} class="not-home"{% endunless %}>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}

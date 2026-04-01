@@ -126,6 +126,13 @@ html[data-theme="dark"] .mobile-fab {
   display: none !important;
 }
 
+/* Mobile: hide sidebar (avatar + contact) on non-home pages */
+@media (max-width: 924px) {
+  body.not-home .sidebar {
+    display: none !important;
+  }
+}
+
 @media (max-width: 924px) {
   /* Tighten nav item padding so all buttons fit on small screens */
   .masthead__menu-item a,
