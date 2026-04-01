@@ -1,5 +1,5 @@
 ---
-title: '涨落定理的数值验证 / Numerical Verification of the Fluctuation Theorem'
+title: '涨落定理的数值验证'
 date: 2026-02-01
 permalink: /posts/2026/02/fluctuation-theorem-verification/
 tags:
@@ -9,8 +9,6 @@ tags:
   - 涨落定理
   - 熵产生
 ---
-
-<div class="lang-zh" markdown="1">
 
 ## 两种熵产生定义
 
@@ -55,53 +53,3 @@ $$\mathrm{Sym}(\sigma) \equiv \ln \frac{P(\Delta S = +\sigma)}{P(\Delta S = -\si
 | $M$ | 驱动力矩 | 扫描多个值 |
 | $\Delta t$ | 时间步长 | $10^{-3}\ \tau$ |
 | $N_\text{traj}$ | 轨道数 | $10^4$ |
-
-</div>
-
-<div class="lang-en" markdown="1">
-
-## Two Definitions of Entropy Production
-
-In the stochastic thermodynamics framework, two equivalent definitions of entropy production exist for the underdamped Brownian rotor:
-
-**Thermodynamic entropy production** (path-independent):
-
-$$\Delta S^{(I)} = \frac{Q_\text{env}}{T} = \frac{\gamma \int_0^\tau (\dot{\theta} - \langle\dot\theta\rangle)^2\, dt}{T}$$
-
-**Trajectory entropy production** (path-integral definition), via the ratio of forward to time-reversed trajectory probabilities:
-
-$$\Delta S^{(II)} = \ln \frac{P[\theta(t)]}{P[\tilde\theta(t)]}$$
-
-Both should satisfy the same fluctuation theorem.
-
-## Testing the Fluctuation Theorem
-
-The symmetry function form of the fluctuation theorem:
-
-$$\mathrm{Sym}(\sigma) \equiv \ln \frac{P(\Delta S = +\sigma)}{P(\Delta S = -\sigma)} = \sigma$$
-
-Plotting $\mathrm{Sym}(\sigma)$ vs. $\sigma$ should yield a straight line with slope 1.
-
-## Numerical Results
-
-For the underdamped Brownian rotor (parameters $I, \gamma, T, M$ extracted from experimental data), $10^4$ independent trajectories were integrated using the Euler–Maruyama scheme.
-
-**Key findings:**
-- The probability distributions of $\Delta S^{(I)}$ and $\Delta S^{(II)}$ are in excellent agreement
-- The symmetry function $\mathrm{Sym}(\sigma)$ matches the theoretical line (slope = 1) well
-- Both definitions support the fluctuation theorem over the main range; qualitative verification is successful
-
-Experimental data also cluster around the theoretical line in the main range, giving qualitative support (large-fluctuation tails are statistically sparse due to finite-sample effects).
-
-## Simulation Parameters
-
-| Parameter | Meaning | Value |
-|-----------|---------|-------|
-| $I$ | Moment of inertia | Extracted from autocorrelation fit |
-| $\gamma$ | Damping coefficient | Extracted from autocorrelation fit |
-| $T_\text{eff}$ | Effective temperature | Extracted from velocity variance |
-| $M$ | Driving torque | Scanned over multiple values |
-| $\Delta t$ | Time step | $10^{-3}\ \tau$ |
-| $N_\text{traj}$ | Number of trajectories | $10^4$ |
-
-</div>

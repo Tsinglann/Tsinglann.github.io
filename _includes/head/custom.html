@@ -8,6 +8,15 @@
      No addEventListener / DOMContentLoaded dependency.
   ──────────────────────────────────────────────────────── -->
 <script>
+  // ── Dark mode: apply immediately to prevent flash ──────
+  (function(){
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((saved === 'dark') || (!saved && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+
   // Apply lang immediately to avoid flash
   (function(){
     var l = localStorage.getItem('site-lang') || 'zh';

@@ -1,5 +1,5 @@
 ---
-title: 'Harada–Sasa 关系：自由 OU 过程的"平凡非平衡稳态" / Harada–Sasa Relation: The Trivial NESS of a Free OU Process'
+title: 'Harada–Sasa 关系：自由 OU 过程的"平凡非平衡稳态"'
 date: 2026-03-05
 permalink: /posts/2026/03/harada-sasa-relation/
 tags:
@@ -10,8 +10,6 @@ tags:
   - 谱耗散
   - 非平衡稳态
 ---
-
-<div class="lang-zh" markdown="1">
 
 ## Harada–Sasa 关系
 
@@ -57,54 +55,3 @@ $$\tilde{C}_v(\omega) = \frac{2\gamma k_B T}{(I\omega)^2 + \gamma^2}$$
 ## 意义
 
 这一结果揭示了 HS 关系的适用边界：对于**有位置势**（如周期棘轮势 $V(\theta)$）的系统，驱动会真正破坏涨落层面的 FDT，HS 方法才能给出非零的非平凡耗散。这也是后续引入可编程磁场势阱的重要动机之一。
-
-</div>
-
-<div class="lang-en" markdown="1">
-
-## The Harada–Sasa Relation
-
-Harada and Sasa (2005) showed that in a steady state, the energy dissipation rate can be estimated from the violation of FDT in the velocity power spectrum:
-
-$$\dot{W} = \int_{-\infty}^{+\infty} \frac{d\omega}{2\pi} \left[ \tilde{C}_v(\omega) - 2k_B T \mathrm{Re}\,\tilde{\mu}(\omega) \right]$$
-
-where $\tilde{C}_v(\omega)$ is the velocity power spectrum and $\tilde{\mu}(\omega)$ is the mobility (response function in the frequency domain). At equilibrium, FDT holds and the integrand vanishes; FDT violation yields a positive dissipation rate.
-
-## The Special Case of a Free OU Process
-
-The model in this thesis is an **underdamped OU process without a positional potential**:
-
-$$I\ddot\theta = -\gamma\dot\theta + M + \xi(t)$$
-
-The velocity satisfies:
-
-$$I\dot{v} = -\gamma v + M + \xi(t)$$
-
-This linear SDE has an analytic velocity power spectrum:
-
-$$\tilde{C}_v(\omega) = \frac{2\gamma k_B T}{(I\omega)^2 + \gamma^2}$$
-
-**Key observation**: This is identical to the equilibrium ($M=0$) Lorentzian spectrum — **independent of the driving torque** $M$!
-
-## Numerical Verification and Physical Interpretation
-
-<figure style="text-align:center;margin:1.5em 0;">
-  <img src="/images/research/HS_power_spectrum.png" alt="Power spectrum" style="max-width:480px;width:100%;border:1px solid #ddd;border-radius:4px;">
-  <figcaption style="font-size:0.85em;color:#666;">Velocity power spectra at different driving torques M (scatter) overlap perfectly with the equilibrium Lorentzian (solid line)</figcaption>
-</figure>
-
-**Conclusions:**
-- The spectral method (HS relation) gives dissipation rate ≈ 0 (FDT holds for velocity fluctuations at any driving)
-- The entropy production method gives dissipation rate ∝ $M^2$ (nonequilibrium dissipation clearly exists)
-
-How to reconcile this?
-
-**Physical picture**: The driving torque $M$ produces a **mean drift** (ordered angular velocity $\langle v \rangle = M/\gamma$), while the **fluctuation part** (velocity minus its mean) is completely unaffected by $M$. FDT only characterizes fluctuations, so it holds at any $M$. Dissipation originates from the mean drift, not from fluctuation-response mismatch.
-
-This constitutes a **"trivial NESS"**: the system is in a nonequilibrium steady state, but FDT for velocity fluctuations holds exactly. The HS relation gives zero dissipation here because it probes FDT violation at the fluctuation level, not the dissipation from mean flow.
-
-## Significance
-
-This result reveals the applicability boundary of the HS relation: for systems **with a positional potential** (e.g., a periodic ratchet $V(\theta)$), driving genuinely breaks FDT at the fluctuation level, and the HS method would yield non-trivial nonzero dissipation. This is one key motivation for introducing a programmable magnetic potential landscape.
-
-</div>
