@@ -1100,6 +1100,27 @@ html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
   background: rgba(147,163,248,0.45);
 }
 
+/* ── Dark mode: code blocks ─────────────────────────────── */
+html[data-theme="dark"] pre,
+html[data-theme="dark"] .highlight,
+html[data-theme="dark"] figure.highlight,
+html[data-theme="dark"] div.highlighter-rouge {
+  background: rgba(30, 30, 46, 0.92) !important;
+  border: 1px solid rgba(147, 163, 248, 0.18) !important;
+  color: #cdd6f4 !important;
+}
+html[data-theme="dark"] pre code,
+html[data-theme="dark"] .highlight code {
+  background: transparent !important;
+  color: #cdd6f4 !important;
+}
+/* Inline code */
+html[data-theme="dark"] :not(pre) > code {
+  background: rgba(147, 163, 248, 0.15) !important;
+  color: #a5b4fc !important;
+  border: 1px solid rgba(147, 163, 248, 0.25) !important;
+}
+
 /* ── Reduced motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
