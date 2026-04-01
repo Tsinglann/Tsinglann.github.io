@@ -61,6 +61,10 @@
 <style>
   html[data-lang="en"] .lang-zh { display: none !important; }
   html[data-lang="zh"] .lang-en { display: none !important; }
+  /* Prevent greedy-nav hamburger button from ever flashing */
+  @media (max-width: 924px) {
+    #site-nav > button { display: none !important; }
+  }
 </style>
 
 <!-- MathJax config: enable $...$ inline math -->
