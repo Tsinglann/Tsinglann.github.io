@@ -18,6 +18,14 @@
     <h3 class="author__name">{{ author.name }}{% if author.name_en %}<span class="author__name-en">{{ author.name_en }}</span>{% endif %}</h3>
     {% if author.pronouns %}<p class="author__pronouns">{{ author.pronouns }}</p>{% endif %}
     {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+
+    <!-- Mobile-only contact block (desktop shows via author__desktop) -->
+    <div class="author__mobile-contact">
+      {% if author.location %}<p><i class="fas fa-fw fa-location-dot" aria-hidden="true"></i> {{ author.location }}</p>{% endif %}
+      {% if author.employer %}<p><i class="fas fa-fw fa-building-columns" aria-hidden="true"></i> {{ author.employer }}</p>{% endif %}
+      {% if author.email %}<p><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> {{ author.email }}</a></p>{% endif %}
+      {% if author.github %}<p><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></p>{% endif %}
+    </div>
   </div>
 
   <div class="author__urls-wrapper">

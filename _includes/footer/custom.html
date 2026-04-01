@@ -12,54 +12,45 @@
 <script>
 (function(){
   var html = document.documentElement;
-  var lang = localStorage.getItem('site-lang') || 'zh';
+
+  // Always read from localStorage — avoids stale closure variable
+  function getLang() { return localStorage.getItem('site-lang') || 'zh'; }
 
   function applyLang(l) {
     html.setAttribute('data-lang', l);
     localStorage.setItem('site-lang', l);
-    // Navbar button
-    var btn = document.getElementById('lang-toggle-btn');
-    if (btn) btn.textContent = l === 'zh' ? 'EN' : '中';
-    // FAB button
-    var fab = document.getElementById('fab-lang-btn');
-    if (fab) fab.textContent = l === 'zh' ? 'EN' : '中';
-    // Nav link text
+    ['lang-toggle-btn', 'fab-lang-btn'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.textContent = l === 'zh' ? 'EN' : '中';
+    });
     document.querySelectorAll('.greedy-nav a[data-zh]').forEach(function(a){
       a.textContent = l === 'zh' ? a.getAttribute('data-zh') : a.getAttribute('data-en');
     });
   }
 
+  function toggleLang() {
+    applyLang(getLang() === 'zh' ? 'en' : 'zh');
+  }
+
   function syncThemeIcon() {
     var isDark = html.getAttribute('data-theme') === 'dark';
-    var fabIcon = document.getElementById('fab-theme-icon');
-    if (fabIcon) {
-      fabIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-    }
+    var icon = document.getElementById('fab-theme-icon');
+    if (icon) icon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
   }
 
   function setup() {
-    applyLang(lang);
+    // Apply saved language
+    applyLang(getLang());
 
-    // Navbar lang button
-    var btn = document.getElementById('lang-toggle-btn');
-    if (btn) {
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        lang = lang === 'zh' ? 'en' : 'zh';
-        applyLang(lang);
-      });
-    }
+    // Bind language toggle — navbar button
+    var navBtn = document.getElementById('lang-toggle-btn');
+    if (navBtn) navBtn.addEventListener('click', function(e){ e.preventDefault(); toggleLang(); });
 
-    // FAB lang button
+    // Bind language toggle — FAB button
     var fabLang = document.getElementById('fab-lang-btn');
-    if (fabLang) {
-      fabLang.addEventListener('click', function(){
-        lang = lang === 'zh' ? 'en' : 'zh';
-        applyLang(lang);
-      });
-    }
+    if (fabLang) fabLang.addEventListener('click', toggleLang);
 
-    // FAB theme button — delegates to existing toggleTheme(), syncs icon via MutationObserver
+    // FAB theme button
     var fabTheme = document.getElementById('fab-theme-btn');
     if (fabTheme) {
       fabTheme.addEventListener('click', function(){
@@ -67,12 +58,17 @@
       });
     }
 
-    // Watch data-theme attribute to keep FAB icon in sync
+    // Move FAB group to <body> root so position:fixed works
+    // (footer has backdrop-filter which creates a new stacking context)
+    var fabGroup = document.getElementById('mobile-fab-group');
+    if (fabGroup) document.body.appendChild(fabGroup);
+
+    // Keep FAB theme icon in sync with data-theme changes
     syncThemeIcon();
     new MutationObserver(function(mutations){
-      mutations.forEach(function(m){
-        if (m.attributeName === 'data-theme') syncThemeIcon();
-      });
+      for (var i = 0; i < mutations.length; i++) {
+        if (mutations[i].attributeName === 'data-theme') syncThemeIcon();
+      }
     }).observe(html, { attributes: true });
   }
 

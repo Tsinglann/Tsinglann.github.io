@@ -392,6 +392,23 @@ html[data-theme="dark"] .mobile-fab {
 }
 .author__urls a:hover { color: var(--ac-primary) !important; }
 
+/* Mobile-only contact block */
+.author__mobile-contact {
+  display: none; /* hidden on desktop */
+}
+.author__mobile-contact p {
+  margin: 0.35em 0;
+  font-size: 0.82em;
+  color: var(--ac-text-muted);
+  text-align: left !important;
+}
+.author__mobile-contact a {
+  color: var(--ac-text-muted);
+  text-decoration: none;
+}
+.author__mobile-contact a:hover { color: var(--ac-primary); }
+.author__mobile-contact i { color: var(--ac-primary); margin-right: 0.3em; }
+
 /* ── Page Content Card ──────────────────────────────────── */
 .page,
 .archive {
@@ -794,18 +811,12 @@ html[data-theme="dark"] .greedy-nav .hidden-links li a {
   #lang-toggle-btn { padding: 5px 7px !important; }
   #theme-toggle a  { padding: 5px 7px !important; }
 
-  /* Follow button: hide it, always show social links */
-  .author__urls-wrapper .btn.btn--inverse { display: none !important; }
-  .author__urls-wrapper .author__urls {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    height: auto !important;
-  }
-  /* Contact info: show on mobile (normally desktop-only) */
-  .sidebar .author__desktop {
-    display: block !important;
-  }
+  /* Hide Follow button and the whole author__urls-wrapper (replaced by mobile-contact) */
+  .author__urls-wrapper { display: none !important; }
+  /* Show mobile contact block */
+  .author__mobile-contact { display: block !important; }
+  .author__content { text-align: center !important; }
+  .author__mobile-contact { text-align: left !important; margin-top: 0.8em; }
 
   /* Sidebar: stack avatar + content vertically, center everything */
   .author__avatar,
