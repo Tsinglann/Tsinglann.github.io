@@ -48,14 +48,6 @@
     document.querySelectorAll('[data-zh]').forEach(function(el){
       el.textContent = l === 'zh' ? el.getAttribute('data-zh') : el.getAttribute('data-en');
     });
-    // Mobile: move greedy-nav hidden items back to visible
-    if (window.innerWidth < 925) {
-      var visible = document.querySelector('.greedy-nav .visible-links');
-      var hidden  = document.querySelector('.greedy-nav .hidden-links');
-      if (visible && hidden) {
-        while (hidden.firstChild) visible.appendChild(hidden.firstChild);
-      }
-    }
   });
 </script>
 <style>
@@ -72,6 +64,11 @@
     }
   };
 </script>
+
+<!-- Fonts: preconnect + reduced weights (was @import in CSS, blocking render) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@400;700&display=swap">
 
 <!-- Custom anime-academic theme -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/anime-academic.css">
