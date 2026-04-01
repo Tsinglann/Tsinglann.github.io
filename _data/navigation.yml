@@ -10,7 +10,3 @@ main:
   - title: "论文"
     title_en: "Publications"
     url: /publications/
-
-  - title: "简历"
-    title_en: "CV"
-    url: /cv/
