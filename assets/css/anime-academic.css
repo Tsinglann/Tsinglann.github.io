@@ -614,6 +614,9 @@ html[data-theme="dark"] .mobile-fab {
 }
 
 /* ── Archive / Post List ────────────────────────────────── */
+/* Space between year divider and first post card */
+.archive__subtitle + .list__item { margin-top: 1em !important; }
+
 .archive__item {
   background: var(--glass-bg) !important;
   backdrop-filter: var(--glass-blur-light);
@@ -946,6 +949,18 @@ html[data-theme="dark"] #theme-icon { color: rgba(228,227,240,0.80) !important; 
 html[data-theme="dark"] .sidebar {
   background: var(--glass-bg-strong) !important;
   border-color: var(--glass-border) !important;
+}
+/* Mobile dark mode: lighter body overlay + more transparent sidebar
+   to match desktop glass appearance */
+@media (max-width: 924px) {
+  html[data-theme="dark"] body {
+    background-image:
+      linear-gradient(rgba(18,17,30,0.30), rgba(18,17,30,0.30)),
+      url('/images/background/mmexport1762604224957.jpg') !important;
+  }
+  html[data-theme="dark"] .sidebar {
+    background: rgba(25, 22, 48, 0.28) !important;
+  }
 }
 html[data-theme="dark"] .author__name {
   background: linear-gradient(120deg, #93a3f8, #c084fc);
